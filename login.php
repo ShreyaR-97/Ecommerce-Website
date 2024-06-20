@@ -14,6 +14,9 @@ if (isset($_POST["submit"])) {
       $_SESSION["login"] = true;
       $_SESSION['id'] = $row['id'];
       $_SESSION['username'] = $row['username'];
+      if(!empty($row['role'])) {
+        $_SESSION ['role'] = $row['role'];
+      }
       header("Location: index.php");
     } else {  
       echo
@@ -45,7 +48,7 @@ if (isset($_POST["submit"])) {
                 <h6 class="card-title text-center">Login</h6>
                 <hr>
                 <!-- registration form code -->
-                <form class="p-2" action="" method="post ">
+                <form class="p-2" action="" method="post">
                     
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>

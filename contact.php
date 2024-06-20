@@ -16,9 +16,9 @@
     <div class="row mt-4">
       <div class="col-md-6">
         <h2>Contact Information</h2>
-        <p><strong>Email:</strong> info@example.com</p>
+        <p><strong>Email:</strong> jkecommerce@example.com</p>
         <p><strong>Phone:</strong> +1 (123) 456-7890</p>
-        <p><strong>Address:</strong> 123 Main St, City, Country</p>
+        <p><strong>Address:</strong> 123 Main Kst, Bangalore, India</p>
       </div>
       <div class="col-md-6">
         <h2>Contact Form</h2>

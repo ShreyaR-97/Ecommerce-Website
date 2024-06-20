@@ -2,6 +2,17 @@
 session_start();
 require_once "./config.php";
 
+if(isset($_GET['submit'])) {
+    $id = $_GET['id'];
+
+    $delete = "DELETE FROM products WHERE id = $id";
+
+    if(mysqli_query($conn, $delete)) {
+        echo "<script>alert('product deleted successfully') </script>";
+}else{
+    echo "<script>alert('Failed to delete product') </script>";
+}
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -34,7 +45,10 @@ if($result = mysqli_query($conn,$show)){
           <h5 class="card-title"><?php echo $row['product_name'];?></h5>
           <p class="card-text"><?php echo $row['description'];?></p>
           <p class="card-text"><strong>Price:</strong>Rs. <?php echo $row['price'];?></p>
-          <a href="#" class="btn btn-primary">View Details</a>
+          <form action="" method="get">
+            <input type="text" name="id" value="<?php echo $row['id']?>" style="display:none">
+            <input class="btn btn-danger" type="submit" name="submit" value="delete" onclick="return confirm('Are you sure to delete this product?')">
+          </form>
         </div>
       </div>
     </div>

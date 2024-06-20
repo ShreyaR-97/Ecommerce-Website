@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "./config.php";
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,7 +19,9 @@ require_once "./config.php";
   <h1 class="mb-4">Our Products</h1>
   <div class="row">
 <?php
-$show = "SELECT * FROM products";
+if (isset($_GET['submit'])) {
+    $search = $_GET['search'];
+$show = "SELECT * FROM products WHERE product_name LIKE '%$search%'";
 
 
 if($result = mysqli_query($conn,$show)){
@@ -35,6 +36,7 @@ if($result = mysqli_query($conn,$show)){
           <p class="card-text"><?php echo $row['description'];?></p>
           <p class="card-text"><strong>Price:</strong>Rs. <?php echo $row['price'];?></p>
           <a href="#" class="btn btn-primary">View Details</a>
+          <a href="add-to-cart.php?id=<?php echo $row['id'];?>&price=<?php echo $row['price'];?>" class="btn btn-primary">Add to cart</a>
         </div>
       </div>
     </div>
@@ -46,6 +48,9 @@ if($result = mysqli_query($conn,$show)){
   }
 }else{
   echo "Failed to fetch";
+}
+}else{
+    echo "enter a keyword to search for products";
 }
 ?>
 

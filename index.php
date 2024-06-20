@@ -1,6 +1,6 @@
 <?php 
+session_start();
 require_once "./config.php";
-
 
 ?>
 
@@ -36,6 +36,7 @@ require_once "./config.php";
       </div>
     <!-- section 1 end -->
 <hr>
+  
      <!-- section 2 -->
      <div class="container">
         <div class="row">
@@ -44,15 +45,15 @@ require_once "./config.php";
             <!-- categories card 1 -->
             <div class="col-sm-12 col-md-4">
                 <div class="card">
-                    <img src="./assets/images/electronics.png" class="card-img-top" alt="electronics">
+                    <img src="./uploads/clothes.jpg" class="card-img-top" alt="electronics">
                     <div class="card-body">
-                      <h5 class="card-title">Electronics</h5>
+                      <h5 class="card-title">Clothes</h5>
                       <p class="card-text">
                         <ul>
-                          <li>Mobile</li>
-                          <li>Laptop</li>
-                          <li>Camera</li>
-                          <li>Lens</li>
+                          <li>Co-Order Set</li>
+                          <li>Trendy Tops</li>
+                          <li>Dress</li>
+                          <li>Trousers</li>
                         </ul>
                       </p>
                       <a href="#" class="btn btn-primary">Explore more </a>
@@ -64,15 +65,15 @@ require_once "./config.php";
              <!-- categories card 2 -->
              <div class="col-sm-12 col-md-4">
                 <div class="card">
-                    <img src="./assets/images/cosemtics.png" class="card-img-top" alt="cosemetics">
+                    <img src="./uploads/cosmetic.jpg" class="card-img-top" alt="cosemetics">
                     <div class="card-body">
                       <h5 class="card-title">Cosmetics</h5>
                       <p class="card-text">
                         <ul>
-                          <li>Oil</li>
-                          <li>Cream</li>
-                          <li>Lipstick</li>
-                          <li>Powder</li>
+                          <li>Skincare</li>
+                          <li>Perfume</li>
+                          <li>Beauty Products</li>
+                          <li>Haircare</li>
                         </ul>
                       </p>
                       <a href="#" class="btn btn-primary">Explore more</a>
@@ -84,15 +85,15 @@ require_once "./config.php";
              <!-- categories card 3 -->
              <div class="col-sm-12 col-md-4">
                 <div class="card">
-                    <img src="https://t4.ftcdn.net/jpg/04/42/21/53/240_F_442215355_AjiR6ogucq3vPzjFAAEfwbPXYGqYVAap.jpg" class="card-img-top" alt="games" height="300px">
+                    <img src="./uploads/footware.jpg" class="card-img-top" alt="games" height="300px">
                     <div class="card-body">
-                      <h5 class="card-title">Games</h5>
+                      <h5 class="card-title">Footware</h5>
                       <p class="card-text">
                         <ul>
-                          <li>Rockstar</li>
-                          <li>Ubisoft</li>
-                          <li>Epic games</li>
-                          <li>Steam</li>
+                          <li>Sandal</li>
+                          <li>High-Heal</li>
+                          <li>Sneaker</li>
+                          <li>Wedge</li>
                         </ul>
                       </p>
                       <a href="#" class="btn btn-primary">Explore more</a>
@@ -106,56 +107,67 @@ require_once "./config.php";
 
     <hr>
 
+    <!-- header carousel section starts here -->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./uploads/sale1.jpg" class="d-block w-100" alt="First Slide">
+    </div>
+    <div class="carousel-item">
+      <img src="./uploads/sale2.jpg" class="d-block w-100" alt="Second Slide">
+    </div>
+    <div class="carousel-item">
+      <img src="./uploads/sale3.jpg" class="d-block w-100" alt="Third Slide">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<hr>
+
+
     <!-- section 3 -->
     <div id="products" class="container">
       <div class="row">
           <h2 class="text-dark text-center">Products</h2>
           
           <!-- categories card 1 -->
-          <div class="col-sm-12 col-md-4">
-              <div class="card">
-                  <img src="" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-          </div>
-          <!-- categories card 1 end -->
-          
-           <!-- categories card 2 -->
-           <div class="col-sm-12 col-md-4">
-              <div class="card">
-                  <img src="./uploads/books.jpg" class="card-img-top" alt="books">
-                  <div class="card-body">
-                    <h5 class="card-title">Books</h5>
-                    <p class="card-text">
-                      <ul>
-                        <li>Motivational Books</li>
-                        <li>Fantasy Books</li>
-                        <li>Novels</li>
-                        <li>Biography</li>
-                      </ul>
-                    </p>
-                    <a href="#" class="btn btn-primary">Explore more</a>
-                  </div>
-                </div>
-          </div>
-          <!-- categories card 2 end -->
+          <?php
+$show = "SELECT * FROM products LIMIT 6";
 
-           <!-- categories card 3 -->
-           <div class="col-sm-12 col-md-4">
-              <div class="card">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-          </div>
-          <!-- categories card 3 end -->
+
+if($result = mysqli_query($conn,$show)){
+  if(mysqli_num_rows($result)>0){
+    $i= 1; while($row = mysqli_fetch_array($result)){ ?>
+
+    <div class="col-md-4">
+      <div class="card product-card">
+        <img src="uploads/<?php echo $row['product_image'];?>" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $row['product_name'];?></h5>
+          <p class="card-text"><?php echo $row['description'];?></p>
+          <p class="card-text"><strong>Price:</strong>Rs. <?php echo $row['price'];?></p>
+          <a href="#" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <?php  }
+    mysqli_free_result($result);
+  }else{
+    echo "no products";
+  }
+}else{
+  echo "Failed to fetch";
+}
+?>
+          <!-- categories card 1 end -->
       </div>
     </div>
   <!-- section 3 end -->
@@ -163,7 +175,7 @@ require_once "./config.php";
 <!-- Section 4: Testimonials Carousel -->
 <div id="testimonials" class="container-fluid bg-light py-5">
   <div class="container">
-    <h2 class="text-center mb-5">Testimonials</h2>
+    <h2 clastext-center mb-5">Testimonials</h2>
     <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <!-- Testimonial items -->

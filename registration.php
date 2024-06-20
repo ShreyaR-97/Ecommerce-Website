@@ -1,5 +1,7 @@
 <?php 
 require_once("./config.php");
+session_start();
+
 if(!empty($_SESSION["id"])) {
 header("Location: index.php");
 }
@@ -9,20 +11,20 @@ if (isset($_POST["submit"])) {
   $password = $_POST["password"];
   $confirmpassword = $_POST["cpassword"];
   $users = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username' OR email = '$email'");
-  if (mysqli_num_rows($users) >0) {
+  if (mysqli_num_rows($users) > 0) {
     echo
     "<script> alert('Username or Email Has ALready Taken'); </script>";
   } else {
-    if ($password == $connfirmpassword) { 
+    if ($password == $confirmpassword) { 
       $encypassword = password_hash($password, PASSWORD_DEFAULT);
       $query = "INSERT INTO users (username,email,password) VALUES('$username','$email','$encypassword')";
       mysqli_query($conn, $query);
       echo
-      '<script> alert("Registered Successfully")</script>';
+      '<script>alert("Registered Successfully")</script>';
       header("refresh:5; url=login.php");
     } else {
       echo
-      '<script> alert(Password Does Not Match"); </script>';
+      '<script> alert("Password Does Not Match"); </script>';
     }
   }
 }

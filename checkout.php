@@ -51,8 +51,8 @@
   <main>
     <div class="py-5 text-center">
       <!-- <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-      <h2>Checkout form</h2>
-      <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+      <h2>Checkout</h2>
+      <p class="lead"></p>
     </div>
 
     <div class="row g-5">
@@ -159,7 +159,16 @@
               <label for="country" class="form-label">Country</label>
               <select class="form-select" id="country" required>
                 <option value="">Choose...</option>
+                <option>India</option>
                 <option>United States</option>
+                <option>Italy</option>
+                <option>Germany</option>
+                <option>England</option>
+                <option>France</option>
+                <option>Russia</option>
+                <option>Isreal</option>
+                <option>Sri Lanka</option>
+                <option>Australia</option>
               </select>
               <div class="invalid-feedback">
                 Please select a valid country.
@@ -170,7 +179,16 @@
               <label for="state" class="form-label">State</label>
               <select class="form-select" id="state" required>
                 <option value="">Choose...</option>
-                <option>California</option>
+                <option>Bengaluru</option>
+                <option>New York</option>
+                <option>Rome</option>
+                <option>Berlin</option>
+                <option>London</option>
+                <option>Paris</option>
+                <option>Moscow</option>
+                <option>Jerusalem</option>
+                <option>Colombo</option>
+                <option>Melbourne</option>
               </select>
               <div class="invalid-feedback">
                 Please provide a valid state.
@@ -203,7 +221,7 @@
           <h4 class="mb-3">Payment</h4>
 
           <div class="my-3">
-            <!-- <div class="form-check">
+             <div class="form-check">
               <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
               <label class="form-check-label" for="credit">Credit card</label>
             </div>
@@ -214,7 +232,7 @@
             <div class="form-check">
               <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
               <label class="form-check-label" for="paypal">PayPal</label>
-            </div> -->
+            </div> 
 
             <div class="form-check">
               <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
@@ -273,6 +291,6 @@
     <!-- lottie script` -->
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
     <!-- custom js -->
-    <script src="./assets/js/main.js"></script>
+    <script src="./assessts/Js/Js file/script.js"></script>
   </body>
 </html>
