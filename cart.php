@@ -1,75 +1,83 @@
-<?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-include("./includes/navbar.php");
+<?php
 session_start();
+require_once "./config.php";
 
-// Initialize the cart if it's not set or is not an array
-if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
-}
+$cartitem = implode(',',array_unique($_SESSION['cart']));
+
+$_SESSION['cart_items'] = $cartitem;
+
+$product = trim($cartitem,',');
+
+$productprice = implode(',',array_unique($_SESSION['price']));
 
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart</title>
-    <?php include("./includes/header.php") ?>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ecommerce</title>
+   <?php include("./includes/header.php") ?>
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center border rounded bg-light my-5">
-                <h1>Cart</h1>
-            </div>
-            <div class="col-lg-8">
-            <table class="table">
-                <thead class="text-center">
-                    <tr>
-                        <th scope="col">Serial No.</th>
-                        <th scope="col">Item Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Remove</th>
-                    </tr>
-                </thead>
-                <tbody class="text-center">
-                    <?php
-                    $total = 0;
-                    foreach ($_SESSION['cart'] as $key => $value) {
-                        $sr = $key + 1;
-                        $total += $value['Price'];
-                        echo "<tr>
-                                <td>{$sr}</td>
-                                <td>" . htmlspecialchars($value['Item_Name']) . "</td>
-                                <td>{$value['Price']}</td>
-                                <td><input class='text-center' type='number' value='{$value['Quantity']}' min='1' max='10'></td>
-                                <td>
-                                <form action='manage_cart.php' method='POST'>
-                                    <button name='Remove_Item' class='btn btn-sm btn-outline-danger'>REMOVE</button>
-                                    <input type='hidden' name='Item_Name' value='" . htmlspecialchars($value['Item_Name']) . "'>
-                                </form>
-                                </td>
-                            </tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>    
-            </div>
-            <div class="col-lg-4">
-                <div class="border bg-light rounded p-4">
-                    <h4>TOTAL</h4>
-                    <h5 class="text-right"><?php echo $total ?></h5>
-                    <br>
-                    <form>
-                        <button class="btn btn-primary btn-block">Checkout</button>
-                    </form>
-                </div>
-            </div>
+  <body>
+    <!-- nav bar start -->
+  <?php include("./includes/navbar.php") ?>
+    <!-- nav bar end -->
+
+    <div class="container mt-5">
+  <h1 class="mb-4">Cart</h1>
+  <div class="row">
+<?php
+$show = "SELECT * FROM products WHERE id IN ($product)";
+
+
+if($result = mysqli_query($conn,$show)){
+  if(mysqli_num_rows($result)>0){
+    $i= 1; while($row = mysqli_fetch_array($result)){ ?>
+
+    <div class="col-md-4">
+      <div class="card product-card">
+        <img src="uploads/<?php echo $row['product_image'];?>" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $row['product_name'];?></h5>
+          <p class="card-text"><?php echo $row['description'];?></p>
+          <p class="card-text"><strong>Price:</strong>Rs. <?php echo $row['price'];?></p>
+          <a href="#" class="btn btn-primary">View Details</a>
         </div>
+      </div>
     </div>
-</body>
+
+    <?php  }
+    mysqli_free_result($result);
+  }else{
+    echo "no products";
+  }
+}else{
+  echo "Failed to fetch";
+}
+?>
+
+    <!-- Add more product cards as needed -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- lottie script` -->
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+    <!-- custom js -->
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
