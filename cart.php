@@ -2,6 +2,7 @@
 session_start();
 require_once "./config.php";
 
+
 $cartitem = implode(',',array_unique($_SESSION['cart']));
 
 $_SESSION['cart_items'] = $cartitem;
@@ -42,24 +43,49 @@ if($result = mysqli_query($conn,$show)){
           <h5 class="card-title"><?php echo $row['product_name'];?></h5>
           <p class="card-text"><?php echo $row['description'];?></p>
           <p class="card-text"><strong>Price:</strong>Rs. <?php echo $row['price'];?></p>
-          <a href="#" class="btn btn-primary">View Details</a>
+          <div class="d-flex justify-content-evenly">
+                      <form action="managecart.php" method="get">
+                        <input type="text" name="products" value="<?php echo $row['id']; ?>" style="display:none">
+                        <input type="text" name="price" value="<?php echo $row['price']; ?>" style="display:none">
+                        <button type="submit" class="btn btn-outline-danger" name="remove">Remove</button>
+                      </form>
+                    </div>
         </div>
       </div>
     </div>
 
-    <?php  }
-    mysqli_free_result($result);
-  }else{
-    echo "no products";
-  }
-}else{
-  echo "Failed to fetch";
-}
-?>
+    <?php $i++;
+            }
+            mysqli_free_result($result);
+          } else {
+            echo '<p class="my-5"><b>No Products</b> </p>';
+          }
+         ?>
 
-    <!-- Add more product cards as needed -->
+        <div class="d-flex justify-content-center">
+          <form class="text-center mx-5" action="checkout.php" method="get">
+            <input type="text" name="valid" value="200" hidden>
+            <button class="btn btn-success" type="submit" name="checkout">Checkout</button>
+
+          </form>
+          <form class="text-center" action="managecart.php" method="get">
+            <input type="text" name="valid" value="200" hidden>
+            <button class="btn btn-danger" href="managecart.php" type="submit" name="clearcart" value="clear">Empty Cart</button>
+          </form>
+        </div>
+
+        <?php
+        $_SESSION['totalprice'] = array_sum($_SESSION['price']);
+        ?>
+
+      <?php } else {
+        echo "No Products in cart";
+      } ?>
+
+    </div>
   </div>
-</div>
+
+
 
 
 
