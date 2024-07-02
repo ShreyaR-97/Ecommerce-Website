@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (empty($_GET['valid'])) {
-    header("Location: index.php");
-    exit();
-}
+//if (empty($_GET['valid'])) {
+    //header("Location: index.php");
+   // exit();
+//}
 
 if (isset($_GET['clearcart'])) {
     unset($_SESSION['cart']);

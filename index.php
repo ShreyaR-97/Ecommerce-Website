@@ -53,7 +53,6 @@ require_once "./config.php";
                           <li>Co-Order Set</li>
                           <li>Trendy Tops</li>
                           <li>Dress</li>
-                          <li>Trousers</li>
                         </ul>
                       </p>
                       <a href="#" class="btn btn-primary">Explore more </a>
@@ -73,7 +72,6 @@ require_once "./config.php";
                           <li>Skincare</li>
                           <li>Perfume</li>
                           <li>Beauty Products</li>
-                          <li>Haircare</li>
                         </ul>
                       </p>
                       <a href="#" class="btn btn-primary">Explore more</a>
@@ -93,7 +91,6 @@ require_once "./config.php";
                           <li>Sandal</li>
                           <li>High-Heal</li>
                           <li>Sneaker</li>
-                          <li>Wedge</li>
                         </ul>
                       </p>
                       <a href="#" class="btn btn-primary">Explore more</a>
