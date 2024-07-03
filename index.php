@@ -172,7 +172,7 @@ if($result = mysqli_query($conn,$show)){
 <!-- Section 4: Testimonials Carousel -->
 <div id="testimonials" class="container-fluid bg-light py-5">
   <div class="container">
-    <h2 clastext-center mb-5">Testimonials</h2>
+    <h2 class="text-center mb-5">Testimonials</h2>
     <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <!-- Testimonial items -->

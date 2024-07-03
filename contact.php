@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once "./config.php";
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,10 +38,10 @@
             <input type="email" class="form-control" id="email" name="email" required>
           </div>
           <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
+            <label for="message" class="form-label">Feedback</label>
             <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-primary">Send Feedback</button>
         </form>
       </div>
     </div>

@@ -29,7 +29,7 @@ if(empty($_GET['valid'])){
   <div class="row d-flex justify-content-center">
   <div class="card" style="width: 45rem;">
   <div class="card-body">
-    <h3 class="card-title">Check Out</h3>
+    <h2 class="card-title text-center mb-5">Check Out</h2>
     <h3>Price : &#8377; <?php echo $_SESSION['totalprice'];?></h3>
     <form action="managecart.php" method="get">
       <input type="text" class="form-control my-2" placeholder="Name" required>
@@ -89,18 +89,6 @@ if(empty($_GET['valid'])){
                 Zip code required.
               </div>
             </div>
-          </div>
-
-          <hr class="my-4">
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Save this information for next time</label>
           </div>
 
           <hr class="my-4">

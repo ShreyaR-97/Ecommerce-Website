@@ -10,7 +10,7 @@ if(!empty($_SESSION['id'])){
         $_SESSION['price'] = array();
     }
     array_push($_SESSION['price'],$_GET['price']);
-    header('Location: index.php');
+    header('Location: cart.php');
 
 }else{
     header('Location: login.php');
@@ -20,3 +20,4 @@ if(!empty($_SESSION['id'])){
 
 
 ?>
+
